@@ -1,2 +1,2 @@
-# Ecom_clickstream_analysis
-Data Analysis project, Ecommerce website's clickstream log. Analyzing the data and creating a dashboard for analysis.
+<h1>Ecommerce Click-Stream Data Analysis</h1>
+<p>The following project show cases and creates a dashboard from the vast amount of ecommerce clickstream data, which gives the information about the customers and neck gap in the sales.</p>
