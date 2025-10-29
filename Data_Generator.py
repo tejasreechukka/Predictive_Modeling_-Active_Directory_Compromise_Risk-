@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 import os
 
 # --- Configuration ---
-NUM_USERS = 5000  # Number of unique users in the system
-NUM_EVENTS = 100000  # Total number of log entries
+NUM_USERS = 500000  # Number of unique users in the system
+NUM_EVENTS = 10000000  # Total number of log entries
 START_DATE = datetime(2025, 1, 1) # Start date for log generation
 
 # Generate unique user IDs
