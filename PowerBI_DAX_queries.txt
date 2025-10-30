@@ -1,0 +1,61 @@
+--------------------
+Accuracy Rate
+
+DEFINE
+	MEASURE 'final_dashboard_table'[Accuracy Rate] = DIVIDE(COUNTROWS(FILTER('final_dashboard_table', 'final_dashboard_table'[is_compromised] = 'final_dashboard_table'[y_pred])), [Total Users Scored])
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"Accuracy Rate", [Accuracy Rate]
+	)
+
+---------------------------------
+Total Users Scored
+
+DEFINE
+    MEASURE 'final_dashboard_table'[Total Users Scored] = COUNTROWS('final_dashboard_table')
+
+EVALUATE
+    SUMMARIZECOLUMNS(
+        "Total Users Scored", [Total Users Scored]
+    )
+
+---------------------------------
+
+Falsse postive Rate (Risk Rate)
+
+DEFINE
+    MEASURE 'final_dashboard_table'[Risk Rate] = DIVIDE(CALCULATE(COUNTROWS(FILTER('final_dashboard_table', 'final_dashboard_table'[is_compromised] = 0 && 'final_dashboard_table'[y_pred] = 1))), CALCULATE(COUNTROWS(FILTER('final_dashboard_table', 'final_dashboard_table'[is_compromised] = 0))))
+EVALUATE
+    SUMMARIZECOLUMNS(
+        "Risk Rate", [Risk Rate]
+    )
+
+---------------------------------
+True Positive Count
+
+DEFINE
+	MEASURE 'final_dashboard_table'[True Positive Count] = COUNTROWS(FILTER('final_dashboard_table', 'final_dashboard_table'[is_compromised] = 1 && 'final_dashboard_table'[y_pred] = 1))
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"True Positive Count", [True Positive Count]
+	)
+
+
+-----------------------------------
+
+// Write your formula below, select 'Run' to try it out. When ready, select 'Update model' to add the measure to your model.
+DEFINE
+	MEASURE 'final_dashboard_table'[Composite_Risk_Score]  =
+AVERAGEX(
+    'final_dashboard_table',
+    ('final_dashboard_table'[total_failed_logins] * 0.4 ) +
+    ('final_dashboard_table'[total_admin_requests] * 0.3 ) +
+    (DIVIDE(365, 'final_dashboard_table'[days_since_last_pwd_change], 0) * 0.3 )
+)
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"Composite_Risk_Score", [Composite_Risk_Score]
+	)
