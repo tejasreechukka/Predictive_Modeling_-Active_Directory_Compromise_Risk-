@@ -1,4 +1,4 @@
--- Feature_query.sql is the sql file with advanced joins and CTE for extracting and data cleansing.
+--- Feature_query.sql is the sql file with advanced joins and CTE for extracting and data cleansing.
 WITH AggregatedCounts AS (
     SELECT
         user_id,
@@ -22,7 +22,7 @@ WITH AggregatedCounts AS (
         user_id
 ),
 
--- 2. CTE: Calculate Time Since Last Action (Window Function - DATE/TIME)
+--- 2. CTE: Calculate Time Since Last Action (Window Function - DATE/TIME)
 TimeMetrics AS (
     SELECT
         t1.user_id,
@@ -39,7 +39,7 @@ TimeMetrics AS (
         t1.user_id
 )
 
--- 3. Final SELECT and JOIN with the Target Variable
+--- 3. Final SELECT and JOIN with the Target Variable
 SELECT
     A.*,
     T.days_since_last_event,
