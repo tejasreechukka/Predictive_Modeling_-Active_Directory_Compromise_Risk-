@@ -1,112 +1,141 @@
-# <h1> Predictive_Modeling_"Active_Directory_Compromise_Risk"</h1>
-# <p>This project simulates a security data analyst role, where you use systems data to build a simple risk-scoring model. The complexity lies in the data preparation and advanced SQL aggregation.</p>
-<!doctype html>
+<h1> Predictive_Modeling_"Active_Directory_Compromise_Risk"</h1>
+<p>This project simulates a security data analyst role, where you use systems data to build a simple risk-scoring model. The complexity lies in the data preparation and advanced SQL aggregation.</p>
+
+<h2>Executive Summary:</h2>
+<h3><b>Objective:</b></h3> <p>To design and implement an end-to-end Machine Learning (ML) solution using advanced SQL feature engineering to proactively identify user accounts at high risk of security compromise.</p>
+
+**Key Results:** The Logistic Regression model achieved a **97% Accuracy Rate** with a **0.02 Risk Rate** (False Negative Rate). This demonstrates the successful creation of a reliable security early warning system capable of focusing investigative resources.
+
+**Actionable Insight:** The user-level analysis confirms that compromised users (peaks in the line graph) are associated with **significantly shorter times since their last event**, indicating anomalous, high-frequency activity typical of a compromised account.
+
+***
+
+### 1. Model Performance and Validation
+
+The model's primary goal was to minimize **False Negatives** (the risk of missing an actual compromise), as this is the costliest error in security.
+
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Predictive_Modeling_-Active_Directory_Compromise_Risk</title>
-  <style>
-    body { font-family: Arial, Helvetica, sans-serif; line-height:1.6; max-width:960px; margin:28px auto; color:#222 }
-    header,h1 { text-align:left; }
-    code { background:#f6f8fa; padding:3px 6px; border-radius:4px; }
-    .badge { display:inline-block; padding:4px 8px; background:#eef; border-radius:6px; margin-right:6px; font-size:0.9rem }
-    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; align-items:start; }
-    .fig { border:1px solid #e6e6e6; padding:10px; border-radius:6px; background:#fff }
-    img { max-width:100%; height:auto; display:block; margin:8px 0; }
-    nav a { display:inline-block; margin-right:12px; color:#0366d6; text-decoration:none }
-    footer { margin-top:36px; color:#555; font-size:0.9rem }
-    pre { background:#f6f8fa; padding:12px; overflow:auto; border-radius:6px }
-  </style>
+  <meta charset="utf-8">
+  <title>Predictive_Modeling_&quot;Active_Directory_Compromise_Risk&quot;</title>
 </head>
 <body>
-  <header>
-    <h1>Predictive_Modeling_-Active_Directory_Compromise_Risk</h1>
-    <p>This repository contains code, sample data, SQL feature queries and a notebook used to build a simple risk-scoring model that estimates Active Directory compromise risk from authentication logs.</p>
-    <nav>
-      <a href="#data">Data</a> · <a href="#notebook">Notebook</a> · <a href="#images">Images</a> · <a href="#run">Run (Windows)</a> · <a href="#files">Important files</a>
-    </nav>
-  </header>
+  <h1>Predictive_Modeling_"Active_Directory_Compromise_Risk"</h1>
+  <p>This project simulates a security data analyst role, where you use systems data to build a simple risk-scoring model. The complexity lies in the data preparation and advanced SQL aggregation.</p>
 
-  <section id="data">
-    <h2>Data and artifacts</h2>
-    <ul>
-      <li><span class="badge">Raw</span> <code>raw_security_logs.csv</code> — example raw logs</li>
-      <li><span class="badge">Targets</span> <code>user_target.csv</code> — target labels / enriched labels</li>
-      <li><span class="badge">Scripts</span> <code>Data_Generator.py</code> — synthetic or pre-processing script</li>
-      <li><span class="badge">SQL</span> <code>Feature_query.sql</code> — SQL used for feature aggregation</li>
-      <li><span class="badge">Notebook</span> <code>dapersonalproject.t (Oct 30, 2025, 9_24_51 AM).ipynb</code> — analysis, feature engineering and modeling</li>
-    </ul>
-  </section>
+  <h2>Executive Summary:</h2>
+  <h3><strong>Objective:</strong></h3>
+  <p>To design and implement an end-to-end Machine Learning (ML) solution using advanced SQL feature engineering to proactively identify user accounts at high risk of security compromise.</p>
 
-  <section id="notebook">
-    <h2>Notebook</h2>
-    <p>Open the main analysis notebook on GitHub or locally via Jupyter. Click the file name below to open on GitHub:</p>
-    <ul>
-      <li>
-        <a href="dapersonalproject.t%20(Oct%2030%2C%202025%2C%209_24_51%20AM).ipynb">dapersonalproject.t (Oct 30, 2025, 9_24_51 AM).ipynb</a>
-      </li>
-    </ul>
-    <p>The notebook demonstrates data loading from <code>raw_security_logs.csv</code>, feature aggregation using <code>Feature_query.sql</code>, feature engineering with <code>Data_Generator.py</code>, and modeling/evaluation.</p>
-  </section>
+  <p><strong>Key Results:</strong> The Logistic Regression model achieved a <strong>97% Accuracy Rate</strong> with a <strong>0.02 Risk Rate</strong> (False Negative Rate). This demonstrates the successful creation of a reliable security early warning system capable of focusing investigative resources.</p>
 
-  <section id="images">
-    <h2>Images / Visuals</h2>
-    <div class="grid">
-      <div class="fig">
-        <strong>Feature importance</strong>
-        <img src="images/feature_importance.png" alt="Feature importance" />
-        <p><code>images/feature_importance.png</code></p>
-      </div>
-      <div class="fig">
-        <strong>Confusion matrix</strong>
-        <img src="images/confusion_matrix.png" alt="Confusion matrix" />
-        <p><code>images/confusion_matrix.png</code></p>
-      </div>
-      <div class="fig">
-        <strong>Security analysis</strong>
-        <img src="images/security_analysis.png" alt="Security analysis" />
-        <p><code>images/security_analysis.png</code></p>
-      </div>
-      <div class="fig">
-        <strong>Dataflow / pipeline</strong>
-        <img src="images/Dataflow.gif" alt="Dataflow" />
-        <p><code>images/Dataflow.gif</code></p>
-      </div>
-    </div>
-  </section>
+  <p><strong>Actionable Insight:</strong> The user-level analysis confirms that compromised users (peaks in the line graph) are associated with <strong>significantly shorter times since their last event</strong>, indicating anomalous, high-frequency activity typical of a compromised account.</p>
 
-  <section id="run">
-    <h2>How to run locally (Windows)</h2>
-    <p>Short steps to reproduce locally:</p>
-    <pre><code>git clone &lt;repo-url&gt;
-cd Predictive_Modeling_-Active_Directory_Compromise_Risk
+  <hr>
 
-python -m venv .venv
-.venv\Scripts\activate
+  <h3>1. Model Performance and Validation</h3>
+  <p>The model's primary goal was to minimize <strong>False Negatives</strong> (the risk of missing an actual compromise), as this is the costliest error in security.</p>
 
-pip install -r requirements.txt  # if present
+  <table border="1" cellpadding="4" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Accuracy Rate</strong></td>
+        <td><strong>0.97 (97%)</strong></td>
+        <td>The model correctly classified 97% of all user accounts as either low-risk or high-risk.</td>
+      </tr>
+      <tr>
+        <td><strong>Risk Rate (False Negative Rate)</strong></td>
+        <td><strong>0.02 (2%)</strong></td>
+        <td>Only 2% of genuinely compromised accounts were missed by the model, proving its high efficacy as an early warning tool.</td>
+      </tr>
+    </tbody>
+  </table>
 
-jupyter lab    # or jupyter notebook
-</code></pre>
-    <p>Open the notebook listed above and run cells in order: data prep &rarr; feature extraction &rarr; modeling &rarr; evaluation.</p>
-  </section>
+  <p>The model's high performance validates the initial hypothesis: <strong>Complex behavioral features derived from raw logs are highly predictive of user risk.</strong></p>
 
-  <section id="files">
-    <h2>Important files</h2>
-    <ul>
-      <li><code>dapersonalproject.t (Oct 30, 2025, 9_24_51 AM).ipynb</code> — analysis notebook</li>
-      <li><code>Data_Generator.py</code> — data generation / preprocessing</li>
-      <li><code>Feature_query.sql</code> — SQL feature queries</li>
-      <li><code>raw_security_logs.csv</code>, <code>user_target.csv</code> — raw and label data</li>
-      <li><code>images/</code> — visuals used in the notebook</li>
-      <li><code>LICENSE</code> — repository license</li>
-    </ul>
-  </section>
+  <hr>
 
-  <footer>
-    <p>Repository owner: <code>Yaswanthv5</code></p>
-    <p>Save this document as <code>README.md</code> (or <code>README.html</code>) at repository root to provide clickable links to notebooks and images on GitHub.</p>
-  </footer>
+  <h3>2. User-Level Analysis: Identifying Anomalies</h3>
+  <p>The bar chart, showing <strong>Sum of <code>days_since_last_event</code></strong> and <strong>Sum of <code>is_compromised</code></strong> by <code>user_id</code>, provides the core business justification for the model.</p>
+
+  <ul>
+    <li><strong>Bar Height (Days Since Last Event):</strong> For the vast majority of users, this value is high (near 300 days), which is expected if accounts are dormant or used infrequently for administrative tasks.</li>
+    <li><strong>Line Peaks (Sum of is_compromised):</strong> The sharp peaks in the line graph indicate the specific users who were confirmed as compromised (<code>is_compromised = 1</code>).</li>
+    <li><strong>The Critical Pattern:</strong> Every user identified as compromised (a line peak) corresponds to a user whose <strong>Days Since Last Event</strong> is dramatically <strong>lower</strong> (a corresponding dip in the blue bar).</li>
+  </ul>
+
+  <p><strong>Inference:</strong> The feature <code>days_since_last_event</code> is a powerful inverse indicator of risk. A compromised account, likely being controlled by a script or attacker, will generate frequent, recent events, reducing this metric close to zero and confirming the feature's high importance in the prediction phase.</p>
+
+  <hr>
+
+  <h3>3. Actionable Prioritization: The Risk Scatter Plot</h3>
+  <p>The scatter plot of <strong>Composite_Risk_Score</strong> vs. <strong>True Positive Count</strong> is designed to create a prioritized security queue.</p>
+
+  <ul>
+    <li><strong>True Positive Count (Y-axis):</strong> The number of times a user was correctly flagged as high-risk by the model (<code>is_compromised = 1</code> AND <code>y_pred = 1</code>).</li>
+    <li><strong>Composite Risk Score (X-axis):</strong> A custom metric used for transparent ranking (e.g., a weighted average of features like failed logins).</li>
+  </ul>
+
+  <p><strong>Actionable Insight:</strong> The cluster of points in the scatter plot identifies the few, highest-risk users. A security analyst should immediately investigate users with a <strong>high Composite_Risk_Score</strong> (e.g., above 3.5) and a <strong>True Positive Count</strong> greater than zero, as these are the model's most confident high-risk predictions.</p>
+
+  <hr>
+
+  <h3>Conclusion and Recommendation</h3>
+  <p>This project successfully transforms raw security data into a proactive risk-prediction capability.</p>
+
+  <p><strong>Recommendation to the Security Team:</strong></p>
+  <ol>
+    <li><strong>Integrate the Model Output:</strong> Directly ingest the model's output (<code>y_pred</code>) into the security alert system.</li>
+    <li><strong>Focus on Low <code>days_since_last_event</code>:</strong> Immediately flag any user whose <code>days_since_last_event</code> falls below a one-week threshold (7 days), as the visualization confirms this is a near-certain indicator of anomalous activity.</li>
+    <li><strong>Validate the Composite Score:</strong> Use the Composite_Risk_Score as a secondary ranking factor to prioritize users who have multiple risk factors (high failed logins, recent admin requests, etc.) for deeper forensic analysis.</li>
+  </ol>
 </body>
 </html>
+| **Accuracy Rate** | **0.97 (97%)** | The model correctly classified 97% of all user accounts as either low-risk or high-risk. |
+| **Risk Rate (False Negative Rate)** | **0.02 (2%)** | This is the crucial business metric. Only **2% of genuinely compromised accounts were missed** by the model, proving its high efficacy as an early warning tool. |
+
+The model's high performance validates the initial hypothesis: **Complex behavioral features derived from raw logs are highly predictive of user risk.**
+
+---
+
+### 2. User-Level Analysis: Identifying Anomalies
+
+The bar chart, showing **Sum of days\_since\_last\_event** and **Sum of is\_compromised** by `user_id`, provides the core business justification for the model.
+
+* **Bar Height (Days Since Last Event):** For the vast majority of users, this value is high (near 300 days), which is expected if accounts are dormant or used infrequently for administrative tasks.
+* **Line Peaks (Sum of is\_compromised):** The sharp peaks in the line graph indicate the specific users who were confirmed as compromised (`is_compromised = 1`).
+* **The Critical Pattern:** Every user identified as compromised (a line peak) corresponds to a user whose **Days Since Last Event** is dramatically **lower** (a corresponding dip in the blue bar).
+
+**Inference:** The feature **`days_since_last_event`** is a powerful inverse indicator of risk. A compromised account, likely being controlled by a script or attacker, will generate frequent, recent events, reducing this metric close to zero and confirming the feature's high importance in the prediction phase.
+
+---
+
+### 3. Actionable Prioritization: The Risk Scatter Plot
+
+The scatter plot of **Composite\_Risk\_Score** vs. **True Positive Count** is designed to create a prioritized security queue.
+
+* **True Positive Count (Y-axis):** This represents the number of times a user was correctly flagged as high-risk by the model (`is_compromised = 1` AND `y_pred = 1`).
+* **Composite Risk Score (X-axis):** This is the custom DAX metric (likely a weighted average of features like failed logins, etc.) used for transparent ranking.
+
+**Actionable Insight:** The cluster of points in the scatter plot identifies the few, highest-risk users. A security analyst should immediately investigate users with a **high Composite\_Risk\_Score** (e.g., above 3.5 on the X-axis) and a **True Positive Count** greater than zero, as these are the model's most confident high-risk predictions.
+
+---
+
+### Conclusion and Recommendation
+
+This project successfully transforms raw security data into a proactive risk-prediction capability.
+
+**Recommendation to the Security Team:**
+
+1.  **Integrate the Model Output:** Directly ingest the model's output (`y_pred`) into the security alert system.
+2.  **Focus on Low `Days Since Last Event`:** Immediately flag any user whose **`days_since_last_event`** falls below a one-week threshold (7 days), as the visualization confirms this is a near-certain indicator of anomalous activity.
+3.  **Validate the Composite Score:** Use the DAX **Composite\_Risk\_Score** as a secondary ranking factor to prioritize users who have multiple risk factors (high failed logins, recent admin requests, etc.) for deeper forensic analysis.
