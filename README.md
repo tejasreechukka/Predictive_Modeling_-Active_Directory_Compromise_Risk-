@@ -1,21 +1,3 @@
-<h1> Predictive_Modeling_"Active_Directory_Compromise_Risk"</h1>
-<p>This project simulates a security data analyst role, where you use systems data to build a simple risk-scoring model. The complexity lies in the data preparation and advanced SQL aggregation.</p>
-
-<h2>Executive Summary:</h2>
-<h3><b>Objective:</b></h3> <p>To design and implement an end-to-end Machine Learning (ML) solution using advanced SQL feature engineering to proactively identify user accounts at high risk of security compromise.</p>
-
-**Key Results:** The Logistic Regression model achieved a **97% Accuracy Rate** with a **0.02 Risk Rate** (False Negative Rate). This demonstrates the successful creation of a reliable security early warning system capable of focusing investigative resources.
-
-**Actionable Insight:** The user-level analysis confirms that compromised users (peaks in the line graph) are associated with **significantly shorter times since their last event**, indicating anomalous, high-frequency activity typical of a compromised account.
-
-***
-
-### 1. Model Performance and Validation
-
-The model's primary goal was to minimize **False Negatives** (the risk of missing an actual compromise), as this is the costliest error in security.
-
-| Metric | Value | Interpretation |
-| :--- | :--- | :--- |<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
