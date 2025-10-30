@@ -1,4 +1,6 @@
 --- Feature_query.sql is the sql file with advanced joins and CTE for extracting and data cleansing.
+create or replace view `robotic-augury-476017-j6.security_analysis.feature_query_output` as
+
 WITH AggregatedCounts AS (
     SELECT
         user_id,
