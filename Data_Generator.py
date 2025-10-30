@@ -8,6 +8,7 @@ NUM_USERS = 500000  # Number of unique users in the system
 NUM_EVENTS = 10000000  # Total number of log entries
 START_DATE = datetime(2025, 1, 1) # Start date for log generation
 
+print("Starting the data Generation Process...")
 # Generate unique user IDs
 user_ids = [f'user_{i:04d}' for i in range(NUM_USERS)]
 
@@ -26,6 +27,7 @@ event_types = np.random.choice(
     p=[0.80, 0.10, 0.05, 0.05]
 )
 
+print("Event types and timestamps generated.")
 # Assign users randomly
 users = np.random.choice(user_ids, size=NUM_EVENTS)
 
@@ -44,6 +46,7 @@ for i in range(NUM_EVENTS):
                 p=[0.7, 0.3] # Compromised users tend to have failed logins and elevated requests
             )
 
+print("Compromised user activity simulated.")
 # Create the final Raw Events DataFrame
 df = pd.DataFrame({
     'event_id': range(1, NUM_EVENTS + 1),
@@ -57,7 +60,7 @@ user_target_df = pd.DataFrame({
     'user_id': user_ids,
     'is_compromised': [1 if user in compromised_users else 0 for user in user_ids]
 })
-
+print("DataFrames for raw events and user target created.")
 # --- Save to CSV Files ---
 # 1. Raw Logs (for BigQuery upload)
 df.to_csv('raw_security_logs.csv', index=False)
