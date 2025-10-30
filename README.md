@@ -2,6 +2,15 @@
 <body>
   <h1>Predictive_Modeling_"Active_Directory_Compromise_Risk"</h1>
   <p>This project simulates a security data analyst role, where you use systems data to build a simple risk-scoring model. The complexity lies in the data preparation and advanced SQL aggregation.</p>
+  <h2>Data flow and Scripts:</h2>
+  <h3>Data flow image:</h3>
+  <img src="./images/Dataflow.gif" alt= "Please see the Gif in Images folder">
+  
+<ul>
+  <li><a href= "./Data_Genrator.py">Data Generator Script</a></li>
+  <li><a href= "./Feature_query.sql">Master SQL File</a></li>
+  <li><a href= "./PowerBI_DAX_queries.txt">PowerBI DAX queries</a></li>
+</ul>
 
   <h2>Executive Summary:</h2>
   <h3><strong>Objective:</strong></h3>
@@ -39,7 +48,14 @@
   </table>
 
   <p>The model's high performance validates the initial hypothesis: <strong>Complex behavioral features derived from raw logs are highly predictive of user risk.</strong></p>
+  
+  <a href = "./Model_note_book.ipyng">Model Train Jupyter Note Book</a>
+  
+  <h3>Confusion Matrix:</h3>
+  <img src="./images/confusion_matrix.png" alt="Please images folder for the confusion matrix">
 
+  <h3>Feature Importance:</h3>
+  <img src="./images/feature_importance.png" alt="Please images folder for the feature importance matrix">
   <hr>
 
   <h3>2. User-Level Analysis: Identifying Anomalies</h3>
@@ -64,6 +80,9 @@
   </ul>
 
   <p><strong>Actionable Insight:</strong> The cluster of points in the scatter plot identifies the few, highest-risk users. A security analyst should immediately investigate users with a <strong>high Composite_Risk_Score</strong> (e.g., above 3.5) and a <strong>True Positive Count</strong> greater than zero, as these are the model's most confident high-risk predictions.</p>
+
+  <h3>Dashboard Image:</h3>
+  <img src = "./images/dashboard.png" alt = "Please see in the images folder for the Dashboard image">
 
   <hr>
 
