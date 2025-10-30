@@ -1,8 +1,4 @@
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Predictive_Modeling_&quot;Active_Directory_Compromise_Risk&quot;</title>
-</head>
 <body>
   <h1>Predictive_Modeling_"Active_Directory_Compromise_Risk"</h1>
   <p>This project simulates a security data analyst role, where you use systems data to build a simple risk-scoring model. The complexity lies in the data preparation and advanced SQL aggregation.</p>
@@ -82,42 +78,3 @@
   </ol>
 </body>
 </html>
-| **Accuracy Rate** | **0.97 (97%)** | The model correctly classified 97% of all user accounts as either low-risk or high-risk. |
-| **Risk Rate (False Negative Rate)** | **0.02 (2%)** | This is the crucial business metric. Only **2% of genuinely compromised accounts were missed** by the model, proving its high efficacy as an early warning tool. |
-
-The model's high performance validates the initial hypothesis: **Complex behavioral features derived from raw logs are highly predictive of user risk.**
-
----
-
-### 2. User-Level Analysis: Identifying Anomalies
-
-The bar chart, showing **Sum of days\_since\_last\_event** and **Sum of is\_compromised** by `user_id`, provides the core business justification for the model.
-
-* **Bar Height (Days Since Last Event):** For the vast majority of users, this value is high (near 300 days), which is expected if accounts are dormant or used infrequently for administrative tasks.
-* **Line Peaks (Sum of is\_compromised):** The sharp peaks in the line graph indicate the specific users who were confirmed as compromised (`is_compromised = 1`).
-* **The Critical Pattern:** Every user identified as compromised (a line peak) corresponds to a user whose **Days Since Last Event** is dramatically **lower** (a corresponding dip in the blue bar).
-
-**Inference:** The feature **`days_since_last_event`** is a powerful inverse indicator of risk. A compromised account, likely being controlled by a script or attacker, will generate frequent, recent events, reducing this metric close to zero and confirming the feature's high importance in the prediction phase.
-
----
-
-### 3. Actionable Prioritization: The Risk Scatter Plot
-
-The scatter plot of **Composite\_Risk\_Score** vs. **True Positive Count** is designed to create a prioritized security queue.
-
-* **True Positive Count (Y-axis):** This represents the number of times a user was correctly flagged as high-risk by the model (`is_compromised = 1` AND `y_pred = 1`).
-* **Composite Risk Score (X-axis):** This is the custom DAX metric (likely a weighted average of features like failed logins, etc.) used for transparent ranking.
-
-**Actionable Insight:** The cluster of points in the scatter plot identifies the few, highest-risk users. A security analyst should immediately investigate users with a **high Composite\_Risk\_Score** (e.g., above 3.5 on the X-axis) and a **True Positive Count** greater than zero, as these are the model's most confident high-risk predictions.
-
----
-
-### Conclusion and Recommendation
-
-This project successfully transforms raw security data into a proactive risk-prediction capability.
-
-**Recommendation to the Security Team:**
-
-1.  **Integrate the Model Output:** Directly ingest the model's output (`y_pred`) into the security alert system.
-2.  **Focus on Low `Days Since Last Event`:** Immediately flag any user whose **`days_since_last_event`** falls below a one-week threshold (7 days), as the visualization confirms this is a near-certain indicator of anomalous activity.
-3.  **Validate the Composite Score:** Use the DAX **Composite\_Risk\_Score** as a secondary ranking factor to prioritize users who have multiple risk factors (high failed logins, recent admin requests, etc.) for deeper forensic analysis.
